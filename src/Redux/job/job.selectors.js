@@ -20,5 +20,11 @@ export const selectCurrentUser = createSelector(
 );
 
 
+export const selectCurrentJobDetail = createSelector(
+  [selectJob],
+  job => job.currentJobDetail
+);
+
+
 
 

@@ -25,3 +25,8 @@ export const removeCurrentJob = _id => ({
     type:JobActionTypes.REMOVE_ITEM,
     payload:_id
 });
+
+export const setCurrentJobDetail = _id => ({
+    type:JobActionTypes.SELECT_JOB_DETAIL,
+    payload:_id
+});
