@@ -4,8 +4,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import ShopPage from "./Pages/job/job.component";
 import Header from "./Components/header/header.component";
-import AddPage from "./Pages/add-page/add-page.component.jsx";
+import AddPage from "./Pages/add-page/add-page.component";
 import JobDetail from "./Pages/job-detail/job-detail.component";
+import EditPage from "./Pages/edit-page/edit-page.component";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -26,12 +27,18 @@ class App extends Component {
             }
           />
           <Route
-            exact
             path="/detail"
             render={() =>
               this.props.jobList.length ? <JobDetail /> : <Redirect to="/" />
             }
           />
+
+          <Route
+          path="/edit"
+          render={() =>
+            this.props.jobList.length ? <EditPage /> : <Redirect to="/" />
+          }
+        />
         </Switch>
       </div>
     );

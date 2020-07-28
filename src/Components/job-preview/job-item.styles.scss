@@ -16,10 +16,9 @@
       height: 100%;
     }
   }
-  .name,
-  .quantity,
-  .price {
+  .name {
     width: 23%;
+    cursor: pointer;
   }
 
   .quantity {

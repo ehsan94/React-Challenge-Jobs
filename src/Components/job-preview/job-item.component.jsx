@@ -20,17 +20,42 @@ const JobItem = ({
   setCurrentJobDetail,
 }) => {
   return (
-    <div
-      className="job-item"
-      onClick={() => {
-        history.push("/detail");
-        setCurrentJobDetail(_id);
-      }}
-    >
-      <span className="name">{title}</span>
-      <span className="quantity">{city}</span>
-      <span className="price">{employer}</span>
-      <div className="remove-button">&#9998;</div>
+    <div className="job-item">
+      <span
+        className="name"
+        onClick={() => {
+          history.push("/detail");
+          setCurrentJobDetail(_id);
+        }}
+      >
+        {title}
+      </span>
+      <span
+        className="name"
+        onClick={() => {
+          history.push("/detail");
+          setCurrentJobDetail(_id);
+        }}
+      >
+        {city}
+      </span>
+      <span
+        className="name"
+        onClick={() => {
+          history.push("/detail");
+          setCurrentJobDetail(_id);
+        }}
+      >
+        {employer}
+      </span>
+      <div
+        className="remove-button"
+        onClick={() => {
+          history.push("/edit");
+        }}
+      >
+        &#9998;
+      </div>
       <div
         className="remove-button"
         onClick={() => {
