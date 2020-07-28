@@ -1,0 +1,24 @@
+.add-job {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  
+    .title {
+      margin: 10px 0;
+    }
+    
+  }
+
+ .inp-div{
+     overflow: hidden;
+     padding-right: .5em;
+ }
+
+ .inp{
+     width: 100%;
+ }
+
+ .rmv{
+     float: right;
+ }
+  
