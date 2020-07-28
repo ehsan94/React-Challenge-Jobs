@@ -25,8 +25,9 @@ class CustomForm extends React.Component {
   }
 
   handleSubmit = async (event) => {
-    const { addNewJob } = this.props;
     event.preventDefault();
+    const { addNewJob } = this.props;
+   
     const { title, city, employer, requirements, tasks } = this.state;
 
     const obj = {
