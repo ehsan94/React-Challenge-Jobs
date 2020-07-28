@@ -2,7 +2,7 @@ import { JobActionTypes } from "./job.types";
 
 const INITIAL_STATE = {
   jobList: [],
-  currentJob : null,
+  currentJob: null,
   currentJobDetail: null,
 };
 
@@ -27,18 +27,20 @@ const jobReducer = (state = INITIAL_STATE, action) => {
         currentJob: action.payload,
       };
 
-      case JobActionTypes.REMOVE_ITEM:
-        let jobList2 = state.jobList.slice();
+    case JobActionTypes.REMOVE_ITEM:
+      let jobList2 = state.jobList.slice();
       return {
         ...state,
-        jobList :  jobList2.filter((item) => item._id !== action.payload),
+        jobList: jobList2.filter((item) => item._id !== action.payload),
       };
 
-      case JobActionTypes.SELECT_JOB_DETAIL:
-        console.log("Here is the payload "+action.payload);
+    case JobActionTypes.SELECT_JOB_DETAIL:
+      console.log("Here is the payload " + action.payload);
       return {
         ...state,
-        currentJobDetail :  state.jobList.find(item => item._id === action.payload)
+        currentJobDetail: state.jobList.find(
+          (item) => item._id === action.payload
+        ),
       };
     default:
       return state;

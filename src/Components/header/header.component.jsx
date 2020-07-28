@@ -3,17 +3,11 @@ import React from "react";
 import { ReactComponent as Logo } from "../../assets/job-logo.svg";
 import { Link } from "react-router-dom";
 
-//import { connect } from "react-redux";
-//import {createStructuredSelector} from 'reselect';
-
-//import CartDropdown from "../cart-dropdown/cart-dropdown.component";
-//import {slectCartHidden} from '../../redux/cart/cart.selectors'
-
 import "./header.styles.scss";
 
 const Header = () => (
   <div className="header">
-  <Logo   className="logo-container"/>
+    <Logo className="logo-container" />
 
     <div className="options">
       <Link className="option" to="/">
@@ -22,13 +16,8 @@ const Header = () => (
       <Link className="option" to="/add">
         Add New
       </Link>
-     
-    
     </div>
-   
   </div>
 );
-
-
 
 export default Header;

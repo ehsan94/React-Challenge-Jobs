@@ -120,63 +120,66 @@ class CustomForm extends React.Component {
             required
           />
           <div>
-          <span>Add Requirements</span>
-          <CustomButton className='rmv' onClick={(e) => this.addRequirements(e)}>
-          &#10010;
-          </CustomButton>
+            <span>Add Requirements</span>
+            <CustomButton
+              className="rmv"
+              onClick={(e) => this.addRequirements(e)}
+            >
+              &#10010;
+            </CustomButton>
 
-          {this.state.requirements.map((requirement, index) => (
-            <div key={index}>
-              <CustomButton
-                className="rmv"
-                onClick={() => this.removeRequirements(index)}
-              >
-                &#10005;
-              </CustomButton>
+            {this.state.requirements.map((requirement, index) => (
+              <div key={index}>
+                <CustomButton
+                  className="rmv"
+                  onClick={() => this.removeRequirements(index)}
+                >
+                  &#10005;
+                </CustomButton>
 
-              <FormInput
-                type="text"
-                name="requirement"
-                value={requirement}
-                onChange={(e) => this.handleRequirementsChange(e, index)}
-                label="Requirement"
-                required
-              />
-            </div>
-          ))}
+                <FormInput
+                  type="text"
+                  name="requirement"
+                  value={requirement}
+                  onChange={(e) => this.handleRequirementsChange(e, index)}
+                  label="Requirement"
+                  required
+                />
+              </div>
+            ))}
           </div>
 
           <div>
-          <span>Add Tasks</span>
-          <CustomButton className='rmv' onClick={(e) => this.addTasks(e)}>
-          &#10010;
-          </CustomButton>
-          {this.state.tasks.map((task, index) => (
-            <div key={index}>
-              <CustomButton
-                className="rmv"
-                onClick={() => this.removeTasks(index)}
-              >
-                &#10005;
-              </CustomButton>
+            <span>Add Tasks</span>
+            <CustomButton className="rmv" onClick={(e) => this.addTasks(e)}>
+              &#10010;
+            </CustomButton>
+            {this.state.tasks.map((task, index) => (
+              <div key={index}>
+                <CustomButton
+                  className="rmv"
+                  onClick={() => this.removeTasks(index)}
+                >
+                  &#10005;
+                </CustomButton>
 
-              <FormInput
-                type="text"
-                name="requirement"
-                value={task}
-                onChange={(e) => this.handleTasksChange(e, index)}
-                label="Requirement"
-                required
-              />
-            </div>
-          ))}
+                <FormInput
+                  type="text"
+                  name="requirement"
+                  value={task}
+                  onChange={(e) => this.handleTasksChange(e, index)}
+                  label="Requirement"
+                  required
+                />
+              </div>
+            ))}
           </div>
           <div>
-          <hr></hr>
-          <hr></hr>
-          <CustomButton type="submit" saveButton>
-            Save
-          </CustomButton>
+            <hr></hr>
+            <hr></hr>
+            <CustomButton type="submit" saveButton>
+              Save
+            </CustomButton>
           </div>
         </form>
       </div>

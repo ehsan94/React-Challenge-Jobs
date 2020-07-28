@@ -10,7 +10,6 @@ import { createStructuredSelector } from "reselect";
 const JobDetail = ({
   currentJobDetail: { title, city, employer, requirements, tasks },
 }) => {
-   
   return (
     <div className="display-item">
       <h1 className="title">{title}</h1>
@@ -18,19 +17,17 @@ const JobDetail = ({
       <h3>Location : {city}</h3>
       <h3>Employer : {employer}</h3>
       <h3>Requirements :</h3>
-      { requirements !== "NA" ?
-          requirements.map((item, index) => (
-        <p key={index}>{item}</p>
-      )): <p>NA</p>
-    }
+      {requirements !== "NA" ? (
+        requirements.map((item, index) => <p key={index}>{item}</p>)
+      ) : (
+        <p>NA</p>
+      )}
       <h3>Tasks :</h3>
-      {
-        tasks !== "NA" ?
-          tasks.map((item, index) => (
-        <p key={index}>{item}</p>
-      )): <p>NA</p>
-    
-    }
+      {tasks !== "NA" ? (
+        tasks.map((item, index) => <p key={index}>{item}</p>)
+      ) : (
+        <p>NA</p>
+      )}
     </div>
   );
 };

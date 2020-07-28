@@ -1,17 +1,23 @@
-import React from 'react';
+import React from "react";
 
+import "./custom-button.styles.scss";
 
-import './custom-button.styles.scss';
-
-const CustomButton = ({children, onClick, inverted, saveButton, ...otherProps}) =>(
-    <button onClick={onClick} className={`${inverted? 'inverted': ''}  ${saveButton ? 'save-button' : '' } custom-button`} {...otherProps} >
+const CustomButton = ({
+  children,
+  onClick,
+  inverted,
+  saveButton,
+  ...otherProps
+}) => (
+  <button
+    onClick={onClick}
+    className={`${inverted ? "inverted" : ""}  ${
+      saveButton ? "save-button" : ""
+    } custom-button`}
+    {...otherProps}
+  >
     {children}
-    </button>
+  </button>
 );
 
 export default CustomButton;
-
-
-
-
-
