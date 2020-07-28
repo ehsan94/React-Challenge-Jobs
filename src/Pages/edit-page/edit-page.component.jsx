@@ -41,6 +41,26 @@ class EditPage extends React.Component {
     this.setState({ [name]: value });
   }
 
+  handleReqChange(event) {
+    const { requirements } = this.state;
+    const { name, value } = event.target;
+    requirements.splice(name, 1, value)
+    this.setState({ requirements: [...requirements] }, () => {
+      //call back function of set state
+      //console.log(this.state.requirements)
+    });
+  }
+
+  handleTasksChange(event) {
+    const { tasks } = this.state;
+    const { name, value } = event.target;
+    tasks.splice(name, 1, value)
+    this.setState({ tasks: [...tasks] }, () => {
+      //call back function of set state
+      console.log(this.state.tasks)
+    });
+  }
+
   render() {
     const { title, city, employer, requirements, tasks } = this.state;
     console.log(requirements);
@@ -79,10 +99,27 @@ class EditPage extends React.Component {
               <FormInput
                 key={index}
                 type="text"
-                name={item}
+                name={index}
                 value={item}
-                onChange={(e) => this.handleChange(e)}
+                onChange={(e) => this.handleReqChange(e)}
                 label="Requirements"
+                required
+              />
+            ))
+          ) : (
+            <p>NA</p>
+          )}
+
+          <h3>Tasks :</h3>
+          {tasks !== "NA" ? (
+            tasks.map((item, index) => (
+              <FormInput
+                key={index}
+                type="text"
+                name={index}
+                value={item}
+                onChange={(e) => this.handleTasksChange(e)}
+                label="Tasks"
                 required
               />
             ))
