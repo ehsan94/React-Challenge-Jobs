@@ -17,8 +17,17 @@
     }
   }
   .name {
-    width: 23%;
+    width: 30%;
     cursor: pointer;
+    font-size: initial;
+    padding-right: 5px;
+  }
+
+  .city {
+
+    width: 20%;
+    cursor: pointer;
+    font-size: initial;
   }
 
   .quantity {

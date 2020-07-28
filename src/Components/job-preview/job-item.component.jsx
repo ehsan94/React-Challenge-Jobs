@@ -51,6 +51,7 @@ const JobItem = ({
       <div
         className="remove-button"
         onClick={() => {
+          setCurrentJobDetail(_id);
           history.push("/edit");
         }}
       >

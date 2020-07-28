@@ -29,8 +29,9 @@ class ShopPage extends React.Component {
           <div className="checkout-header">
             <span>Job Title</span>
           </div>
+          
           <div className="checkout-header">
-            <span>City</span>
+            <span className='city'>City</span>
           </div>
           <div className="checkout-header">
             <span>Employer</span>
