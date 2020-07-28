@@ -6,16 +6,19 @@ import './job.styles.scss'
 import {connect} from "react-redux";
 import {createStructuredSelector} from 'reselect'
 
+import {toggleModalHidden} from '../../Redux/job/job.actions'
 import {setCurrentJobs} from '../../Redux/job/job.actions'
 import {selectJobItems} from '../../Redux/job/job.selectors'
 
 import JobItem from '../../Components/job-preview/job-item.component'
 
+
 class ShopPage extends React.Component{
    
     componentDidMount(){
-        const {setCurrentJobs, jobList} = this.props;
+        const {setCurrentJobs, jobList, toggleModalHidden} = this.props;
         if(jobList.length < 1){
+          toggleModalHidden();
           setCurrentJobs(JOB_DATA);
         }
         
@@ -57,6 +60,7 @@ class ShopPage extends React.Component{
 
 const mapDispatchToProps = (dispatch) => ({
     setCurrentJobs: (job) => dispatch(setCurrentJobs(job)),
+    toggleModalHidden: () => dispatch(toggleModalHidden())
   });
 
   const mapStateToProps = createStructuredSelector({

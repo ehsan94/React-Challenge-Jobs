@@ -1,10 +1,22 @@
 import { createSelector } from "reselect";
 
-const selectCart = (state) => state.job;
+const selectJob = (state) => state.job;
 
 export const selectJobItems = createSelector(
-  [selectCart],
+  [selectJob],
   (job) => job.jobList
+);
+
+export const selectModalHidden = createSelector(
+  [selectJob],
+  modal => modal.hidden
+)
+
+
+
+export const selectCurrentUser = createSelector(
+  [selectJob],
+  job => job.currentJob
 );
 
 

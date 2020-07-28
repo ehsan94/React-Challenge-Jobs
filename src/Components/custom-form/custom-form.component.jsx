@@ -3,7 +3,6 @@ import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
 import "./custom-form.styles.scss";
-import { useHistory } from "react-router-dom";
 import uuid from "react-uuid";
 
 import { connect } from "react-redux";
@@ -146,6 +145,7 @@ class CustomForm extends React.Component {
             </div>
           ))}
           </div>
+
           <div>
           <span>Add Tasks</span>
           <CustomButton className='rmv' onClick={(e) => this.addTasks(e)}>

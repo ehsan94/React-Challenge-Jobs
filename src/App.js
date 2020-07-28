@@ -14,7 +14,7 @@ class App extends Component {
  
 
   render() {
-    console.log(this.props.jobList)
+   
     return (
       <div className="App">
       <Header/>
