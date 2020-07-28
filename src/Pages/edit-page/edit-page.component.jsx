@@ -59,6 +59,14 @@ class EditPage extends React.Component {
     this.setState({ [name]: value });
   }
 
+  addTasks = (event) => {
+    this.setState({ tasks: [...this.state.tasks, ""] });
+  };
+  removeTasks = (index) => {
+    this.state.tasks.splice(index, 1);
+    this.setState({ tasks: this.state.tasks });
+  };
+
   handleReqChange(event) {
     const { requirements } = this.state;
     const { name, value } = event.target;
@@ -128,17 +136,28 @@ class EditPage extends React.Component {
           )}
 
           <h3>Tasks :</h3>
+          <CustomButton className="rmv" onClick={(e) => this.addTasks(e)}>
+            &#10010;
+          </CustomButton>
           {tasks !== "NA" ? (
             tasks.map((item, index) => (
-              <FormInput
-                key={index}
-                type="text"
-                name={index}
-                value={item}
-                onChange={(e) => this.handleTasksChange(e)}
-                label="Tasks"
-                required
-              />
+              <div key={index}>
+              <CustomButton
+                  className="rmv"
+                  onClick={() => this.removeTasks(index)}
+                >
+                  &#10005;
+                </CustomButton>
+                <FormInput
+                  key={index}
+                  type="text"
+                  name={index}
+                  value={item}
+                  onChange={(e) => this.handleTasksChange(e)}
+                  label="Tasks"
+                  required
+                />
+              </div>
             ))
           ) : (
             <p>NA</p>
