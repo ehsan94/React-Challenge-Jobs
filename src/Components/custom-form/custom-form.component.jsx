@@ -27,7 +27,7 @@ class CustomForm extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { addNewJob } = this.props;
-   
+
     const { title, city, employer, requirements, tasks } = this.state;
 
     const obj = {
@@ -124,6 +124,7 @@ class CustomForm extends React.Component {
             <span>Add Requirements</span>
             <CustomButton
               className="rmv"
+              type="button"
               onClick={(e) => this.addRequirements(e)}
             >
               &#10010;
@@ -133,6 +134,7 @@ class CustomForm extends React.Component {
               <div key={index}>
                 <CustomButton
                   className="rmv"
+                  type="button"
                   onClick={() => this.removeRequirements(index)}
                 >
                   &#10005;
@@ -152,13 +154,18 @@ class CustomForm extends React.Component {
 
           <div>
             <span>Add Tasks</span>
-            <CustomButton className="rmv" onClick={(e) => this.addTasks(e)}>
+            <CustomButton
+              className="rmv"
+              type="button"
+              onClick={(e) => this.addTasks(e)}
+            >
               &#10010;
             </CustomButton>
             {this.state.tasks.map((task, index) => (
               <div key={index}>
                 <CustomButton
                   className="rmv"
+                  type="button"
                   onClick={() => this.removeTasks(index)}
                 >
                   &#10005;
@@ -166,10 +173,10 @@ class CustomForm extends React.Component {
 
                 <FormInput
                   type="text"
-                  name="requirement"
+                  name="task"
                   value={task}
                   onChange={(e) => this.handleTasksChange(e, index)}
-                  label="Requirement"
+                  label="Tasks"
                   required
                 />
               </div>

@@ -34,7 +34,7 @@ class EditPage extends React.Component {
       tasks: currentJobDetail.tasks,
     });
   }
-  handleSubmit = async (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { removeCurrentJob, addNewJob } = this.props;
     const { id, title, city, employer, requirements, tasks } = this.state;
@@ -51,9 +51,12 @@ class EditPage extends React.Component {
 
     addNewJob(obj);
 
-    alert("Saved Successfully");
+    alert("Change Updated");
   };
 
+  addRequirements = (event) => {
+    this.setState({ requirements: [...this.state.requirements, ""] });
+  };
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -65,6 +68,11 @@ class EditPage extends React.Component {
   removeTasks = (index) => {
     this.state.tasks.splice(index, 1);
     this.setState({ tasks: this.state.tasks });
+  };
+
+  removeRequirements = (index) => {
+    this.state.requirements.splice(index, 1);
+    this.setState({ requirements: this.state.requirements });
   };
 
   handleReqChange(event) {
@@ -119,31 +127,52 @@ class EditPage extends React.Component {
             required
           />
           <h3>Requirements :</h3>
+          <CustomButton
+            className="rmv"
+            type="button"
+            onClick={(e) => this.addRequirements(e)}
+          >
+            &#10010;
+          </CustomButton>
           {requirements !== "NA" ? (
             requirements.map((item, index) => (
-              <FormInput
-                key={index}
-                type="text"
-                name={index}
-                value={item}
-                onChange={(e) => this.handleReqChange(e)}
-                label="Requirements"
-                required
-              />
+              <div key={index}>
+                <CustomButton
+                  className="rmv"
+                  type="button"
+                  onClick={() => this.removeRequirements(index)}
+                >
+                  &#10005;
+                </CustomButton>
+                <FormInput
+                  key={index}
+                  type="text"
+                  name={index}
+                  value={item}
+                  onChange={(e) => this.handleReqChange(e)}
+                  label="Requirements"
+                  required
+                />
+              </div>
             ))
           ) : (
             <p>NA</p>
           )}
 
           <h3>Tasks :</h3>
-          <CustomButton className="rmv" onClick={(e) => this.addTasks(e)}>
+          <CustomButton
+            className="rmv"
+            type="button"
+            onClick={(e) => this.addTasks(e)}
+          >
             &#10010;
           </CustomButton>
           {tasks !== "NA" ? (
             tasks.map((item, index) => (
               <div key={index}>
-              <CustomButton
+                <CustomButton
                   className="rmv"
+                  type="button"
                   onClick={() => this.removeTasks(index)}
                 >
                   &#10005;
